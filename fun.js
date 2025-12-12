@@ -109,9 +109,9 @@ function ls() {
     lsExecuted = true;
     blinkingIsActive = false;
     
-    const experiance = document.querySelector('#experiance');
-    typeWriter(experiance, 'Experiance', 50, () => {
-        makeClickable(experiance, 'experiance.html');
+    const experience = document.querySelector('#experience');
+    typeWriter(experience, 'Experience', 50, () => {
+        makeClickable(experience, 'experience.html');
         const projects = document.querySelector('#projects');
         typeWriter(projects, 'Projects', 50, () => {
             makeClickable(projects, 'projects.html');
