@@ -97,4 +97,14 @@ body {
     display: flex;
     flex-direction: row;
     gap: 25px;
+    color: #00ff00;
+}
+
+#topics a {
+    color: #00ff00; /* terminal green */
+    text-decoration: none;
+}
+
+#topics a:hover {
+    text-decoration: underline;
 }

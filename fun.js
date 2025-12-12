@@ -111,10 +111,23 @@ function ls() {
     
     const experiance = document.querySelector('#experiance');
     typeWriter(experiance, 'Experiance', 50, () => {
+        makeClickable(experiance, 'experiance.html');
         const projects = document.querySelector('#projects');
         typeWriter(projects, 'Projects', 50, () => {
+            makeClickable(projects, 'projects.html');
             const about = document.querySelector('#about');
-            typeWriter(about, 'About Me', 50);
+            typeWriter(about, 'About Me', 50, () => {
+                makeClickable(about, 'about.html');
+            });
         });
     });
+}
+
+/**
+ * LINK FUNCTIONALITY
+ * Makes an element's text into a clickable link
+ */
+function makeClickable(element, url) {
+    const text = element.textContent;
+    element.innerHTML = `<a href="${url}">${text}</a>`;
 }
