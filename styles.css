@@ -157,6 +157,26 @@ body {
 }
 
 /* ==========================================================================
+   PAGE-SPECIFIC LAYOUTS
+   ========================================================================== */
+
+.page-experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.page-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    width: 100%;
+    height: 100vh;
+    max-width: 900px;
+
+}
+
+/* ==========================================================================
    RESPONSIVE - MOBILE
    ========================================================================== */
 

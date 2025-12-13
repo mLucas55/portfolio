@@ -10,6 +10,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+	const p = document.querySelector('#projects-header');
+    if(p){
+        typeWriter(p, 'Projects', 50, () => {
+        blinkingUnderscore(p, 'Projects');
+    });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	const p = document.querySelector('#experience-header');
+    if(p){
+        typeWriter(p, 'Experience', 50, () => {
+        blinkingUnderscore(p, 'Experience');
+    });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+	const p = document.querySelector('#about-header');
+    if(p){
+        typeWriter(p, 'About Me', 50, () => {
+        blinkingUnderscore(p, 'About Me');
+    });
+    }
+});
+
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && !lsExecuted) {
         console.log('Enter key pressed!');
@@ -18,7 +45,8 @@ document.addEventListener('keydown', function(event) {
 });
 
 setTimeout(() => {
-    document.getElementById("directions").classList.add("show");
+    const directions = document.getElementById("directions");
+    if (directions) directions.classList.add("show");
 }, 3000); // ms
 
 
