@@ -2,6 +2,7 @@
 let blinkingIsActive = true;
 let lsExecuted = false;
 
+// Runs typewriter effect on load, after typewriter is done, blinking curser is started via callback
 document.addEventListener('DOMContentLoaded', function() {
 	const p = document.querySelector('#name');
 	typeWriter(p, 'Lucas_Monroe@Portfolio ~ % ls', 50, () => {
@@ -15,6 +16,11 @@ document.addEventListener('keydown', function(event) {
         ls();
     }
 });
+
+setTimeout(() => {
+    document.getElementById("directions").classList.add("show");
+}, 3000); // ms
+
 
 /**
  * TERMINAL WINDOW CONTROL
@@ -31,7 +37,7 @@ function redCircle() {
     
     screen.innerHTML = `
         <div onclick="restoreTerminal()" style="cursor: pointer; text-align: center;">
-            <img src="terminal.png" alt="Terminal" style="width: 33%; height: 33%; object-fit: contain; display: block; margin: 0 auto;">
+            <img src="terminal.png" alt="Terminal" style="width: 30%; height: 30%; object-fit: contain; display: block; margin: 0 auto;">
             <p style="margin-top: 10px; color: #e2e8f0;">Terminal.app</p>
         </div>
     `;
@@ -88,12 +94,16 @@ function typeWriter(element, text, speed = 50, callback) {
  */
 function blinkingUnderscore(element, text) {
     let showUnderscore = true;
+    const cursor = document.getElementById('cursor');
+    cursor.style.visibility = 'visible';
     function blink() {
         if(blinkingIsActive){ // Use global variable directly
-            element.textContent = text + (showUnderscore ? "_" : "");
+            cursor.textContent = showUnderscore ? "_" : "";
             showUnderscore = !showUnderscore;
             setTimeout(blink, 450);
         } else {
+            cursor.textContent = "";
+            cursor.style.visibility = 'hidden';
             return;
         }
     }
@@ -108,6 +118,7 @@ function blinkingUnderscore(element, text) {
 function ls() {
     lsExecuted = true;
     blinkingIsActive = false;
+    document.getElementById('directions').classList.remove('show');
     
     const experience = document.querySelector('#experience');
     typeWriter(experience, 'Experience', 50, () => {
