@@ -1,5 +1,6 @@
 // GLOBAL VARIABLES
 let blinkingIsActive = true;
+let headingBlinkingIsActive = true
 let lsExecuted = false;
 
 // Runs typewriter effect on load, after typewriter is done, blinking curser is started via callback
@@ -11,19 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-	const p = document.querySelector('#projects-header');
+	const p = document.querySelector('#experience-header');
     if(p){
-        typeWriter(p, 'Projects', 50, () => {
-        blinkingUnderscore(p, 'Projects');
+        typeWriter(p, 'Experience', 50, () => {
+        blinkingUnderscore(p, 'Experience');
     });
     }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-	const p = document.querySelector('#experience-header');
+	const p = document.querySelector('#projects-header');
     if(p){
-        typeWriter(p, 'Experience', 50, () => {
-        blinkingUnderscore(p, 'Experience');
+        typeWriter(p, 'Projects', 50, () => {
+        blinkingUnderscore(p, 'Projects');
     });
     }
 });
@@ -46,7 +47,7 @@ document.addEventListener('keydown', function(event) {
 
 setTimeout(() => {
     const directions = document.getElementById("directions");
-    if (directions) directions.classList.add("show");
+    if (directions && !lsExecuted) directions.classList.add("show");
 }, 3000); // ms
 
 
@@ -122,10 +123,10 @@ function typeWriter(element, text, speed = 50, callback) {
  */
 function blinkingUnderscore(element, text) {
     let showUnderscore = true;
-    const cursor = document.getElementById('cursor');
+    const cursor = document.querySelector('.cursor');
     cursor.style.visibility = 'visible';
     function blink() {
-        if(blinkingIsActive){ // Use global variable directly
+        if(blinkingIsActive) { // Use global variable directly
             cursor.textContent = showUnderscore ? "_" : "";
             showUnderscore = !showUnderscore;
             setTimeout(blink, 450);
@@ -138,6 +139,7 @@ function blinkingUnderscore(element, text) {
 
     blink();
 }
+
 
 /**
  * LS COMMAND FUNCTIONALITY
