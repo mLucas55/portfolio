@@ -22,6 +22,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* ==========================================================================
@@ -29,10 +31,10 @@ body {
    ========================================================================== */
 
 #screen {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 70%;
     border: 1.5px solid white;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -111,6 +113,11 @@ body {
 /* ==========================================================================
    COMPONENTS - NAVIGATION
    ========================================================================== */
+
+#directions:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 #topics {
     display: flex;
@@ -196,7 +203,8 @@ body {
 .title-zone {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    min-width: 220px; /* Adjust based on your longest heading */
 }
 
 

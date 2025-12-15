@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
 	const p = document.querySelector('#experience-header');
     if(p){
         typeWriter(p, 'Experience', 50, () => {
-        blinkingUnderscore(p, 'Experience');
-    });
+            blinkingUnderscore(p, 'Experience');
+        });
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
 	const p = document.querySelector('#projects-header');
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// ENTER COMMAND
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && !lsExecuted) {
         console.log('Enter key pressed!');
@@ -45,10 +47,11 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// SHOW INSTRUCTIONS ON DELAY
 setTimeout(() => {
     const directions = document.getElementById("directions");
     if (directions && !lsExecuted) directions.classList.add("show");
-}, 3000); // ms
+}, 2500); // ms
 
 
 /**
