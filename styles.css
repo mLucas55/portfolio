@@ -40,8 +40,26 @@ body {
     flex-direction: column;
 }
 
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+
+}
+
 #content {
     padding-top: 8px;
+}
+
+#back-btn {
+    margin-left: auto;
+    background-color: transparent;
+    color: #00ff00;
+    border: none;
+    font-size: 0.9em;
+    text-decoration: none;
+    justify-self: start;
 }
 
 /* ==========================================================================
