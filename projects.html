@@ -8,18 +8,44 @@
     <link rel="stylesheet" href="styles.css">
     <title>Lucas Monroe</title>
 </head>
-<body class="topic-page">
+<body>
 
-    <div class="page-content">
-        <div class="page-heading">
-            <a href="index.html" class="back-btn">← Back</a>
-            <div class="title-zone">
-                <h1 id="projects-header"></h1><span class="cursor">_</span>
+    <div class="screen" id="projects-screen">
+        <div id="header">
+            <div id="buttons">
+                <div id="red" class="window-button" onclick="redCircle()"></div>
+                <div id="orange" class="window-button"></div>
+                <div id="green" class="window-button"></div>
             </div>
-            <div></div>
+            <a href="index.html?from=projects" id="back-btn">← Back</a>
         </div>
+        <div id="content">
+            <div id="command-line">
+                <p id="projects-header">Lucas_Monroe@Projects ~ % ls</p><span class="cursor">_</span>
+            </div>
+            <nav id="topics">
+                <p id="experience">Experience</p>
+                <p id="projects">Projects</p>
+                <p id="about">About Me</p>
+            </nav>
+        </div>        
     </div>
+    <p>Best on computer!</p>
       
-    <script src="fun.js"></script>
+    <!-- JavaScript Modules -->
+    <script>
+        if (new URLSearchParams(window.location.search).get('from') === 'index') {
+            document.getElementById('projects-screen').classList.add('expand-animation');
+            history.replaceState(null, '', 'projects.html');
+        }
+
+        // Underline the corresponding nav button with the current page
+        const currentNavButton = document.querySelector('#projects')
+        currentNavButton.style.textDecoration = 'underline';
+    </script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/commands.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

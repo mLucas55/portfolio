@@ -17,29 +17,92 @@ body {
     font-family: "SF Mono", "Menlo", "Consolas", "Liberation Mono", "Courier New", monospace;
     height: 100vh;
     margin: 0;
-    background: #000000;
+    background: #0e0e0e;
     color: #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* ==========================================================================
    LAYOUT - MAIN SCREEN
    ========================================================================== */
 
-#screen {
+.screen {
     width: 50%;
-    height: 50%;
+    height: 60%;
     border: 1.5px solid white;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    background-color: black;
+}
+
+/* Subpages - larger screen size */
+#experience-screen,
+#projects-screen,
+#about-screen {
+    width: 75%;
+    height: 85%;
+}
+
+/* Conditional expand animation (from index to subpage) */
+.expand-animation {
+    animation: expandScreen 0.6s ease-out forwards;
+}
+
+@keyframes expandScreen {
+    0% {
+        width: 50%;
+        height: 60%;
+    }
+    100% {
+        width: 75%;
+        height: 85%;
+    }
+}
+
+/* Conditional shrink animation (from subpage to index) */
+.shrink-animation {
+    animation: shrinkScreen 0.6s ease-out forwards;
+}
+
+@keyframes shrinkScreen {
+    0% {
+        width: 75%;
+        height: 85%;
+    }
+    100% {
+        width: 50%;
+        height: 60%;
+    }
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 #content {
     padding-top: 8px;
+}
+
+#back-btn {
+    margin-left: auto;
+    background-color: transparent;
+    color: #00ff00;
+    border: none;
+    font-size: 0.9em;
+    text-decoration: none;
+    justify-self: start;
+}
+
+#back-btn:hover {
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -112,6 +175,11 @@ body {
    COMPONENTS - NAVIGATION
    ========================================================================== */
 
+#directions:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 #topics {
     display: flex;
     flex-direction: row;
@@ -182,21 +250,11 @@ body {
     width: 100%;
 }
 
-.back-btn {
-    justify-self: start;
-    color: #00ff00;
-    text-decoration: none;
-    font-size: 0.9em;
-}
-
-.back-btn:hover {
-    text-decoration: underline;
-}
-
 .title-zone {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    min-width: 220px; /* Adjust based on your longest heading */
 }
 
 
