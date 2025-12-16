@@ -10,9 +10,9 @@
 </head>
 <body>
 
-    <div id="screen">
+    <div class="screen" id="main-screen">
         <div id="buttons">
-            <div id="red" class="window-button" onclick="redCircle()"></div>
+            <div id="red" class="window-button"></div>
             <div id="orange" class="window-button"></div>
             <div id="green" class="window-button"></div>
         </div>
@@ -30,6 +30,19 @@
     <p>Best on computer!</p>
       
     <!-- JavaScript Modules -->
+    <script>
+        // Check if coming back from experience page
+        const from = new URLSearchParams(window.location.search).get('from')
+        if (from === 'experience' || 
+            from === 'projects' || 
+            from === 'about') {
+            document.getElementById('main-screen').classList.add('shrink-animation');
+            // Clean up URL without reloading
+            history.replaceState(null, '', 'index.html');
+        }
+
+        
+    </script>
     <script src="js/typewriter.js"></script>
     <script src="js/terminal.js"></script>
     <script src="js/commands.js"></script>

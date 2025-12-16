@@ -17,15 +17,15 @@ const PAGE_CONFIGS = {
         enableBlink: true
     },
     '#experience-header': {
-        text: 'Lucas_Monroe@Experience ~ % ', // NOT WORKING
+        text: 'skip',
         enableBlink: true
-    },
+    }, 
     '#projects-header': {
-        text: 'Projects',
+        text: 'skip',
         enableBlink: true
     },
     '#about-header': {
-        text: 'About Me',
+        text: 'skip',
         enableBlink: true
     }
 };
@@ -38,11 +38,25 @@ const PAGE_CONFIGS = {
 function initTypewriter(selector, config) {
     const element = document.querySelector(selector);
     if (element) {
-        typeWriter(element, config.text, 50, () => {
-            if (config.enableBlink) {
-                blinkingUnderscore(element, config.text);
-            }
-        });
+        if (config.text === 'skip') {
+            const experience = document.querySelector('#experience');
+            const projects = document.querySelector('#projects');
+            const about = document.querySelector('#about');
+
+            makeClickable(experience, 'experience.html');
+            makeClickable(projects, 'projects.html');
+            makeClickable(about, 'about.html');
+        }
+        else if(config.text === '' && config.enableBlink) {
+            blinkingUnderscore(element, config.text);
+        }
+        else {
+            typeWriter(element, config.text, 50, () => {
+                if (config.enableBlink) {
+                    blinkingUnderscore(element, config.text);
+                }
+            });
+        } 
     }
 }
 

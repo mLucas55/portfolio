@@ -7,7 +7,7 @@
  * Minimizes terminal to show app icon (red circle button)
  */
 function redCircle() {
-    const screen = document.getElementById('screen');
+    const screen = document.getElementById('index-screen');
     
     // Store original content before replacing
     if (!screen.dataset.originalContent) {
@@ -28,7 +28,7 @@ function redCircle() {
  * Restores terminal from minimized state
  */
 function restoreTerminal() {
-    const screen = document.getElementById('screen');
+    const screen = document.getElementById('index-screen');
     screen.innerHTML = screen.dataset.originalContent;
     screen.style.border = screen.dataset.originalBorder;
 

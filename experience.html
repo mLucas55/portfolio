@@ -10,29 +10,39 @@
 </head>
 <body>
 
-    <div id="screen">
+    <div class="screen" id="experience-screen">
         <div id="header">
             <div id="buttons">
                 <div id="red" class="window-button" onclick="redCircle()"></div>
                 <div id="orange" class="window-button"></div>
                 <div id="green" class="window-button"></div>
             </div>
-            <button id="back-btn">← Back</button>
+            <a href="index.html?from=experience" id="back-btn">← Back</a>
         </div>
         <div id="content">
             <div id="command-line">
-                <p id="experience-header"></p><span class="cursor">_</span><span id="directions" onclick="ls()">(press enter, or click this message)</span>
+                <p id="experience-header">Lucas_Monroe@Experience ~ % ls</p><span class="cursor">_</span>
             </div>
             <nav id="topics">
-                <p id="experience"></p>
-                <p id="projects"></p>
-                <p id="about"></p>
+                <p id="experience">Experience</p>
+                <p id="projects">Projects</p>
+                <p id="about">About Me</p>
             </nav>
         </div>        
     </div>
     <p>Best on computer!</p>
       
     <!-- JavaScript Modules -->
+    <script>
+        if (new URLSearchParams(window.location.search).get('from') === 'index') {
+            document.getElementById('experience-screen').classList.add('expand-animation');
+            history.replaceState(null, '', 'experience.html');
+        }
+        
+        // Underline the corresponding nav button with the current page
+        const currentNavButton = document.querySelector('#experience')
+        currentNavButton.style.textDecoration = 'underline';
+    </script>
     <script src="js/typewriter.js"></script>
     <script src="js/terminal.js"></script>
     <script src="js/commands.js"></script>

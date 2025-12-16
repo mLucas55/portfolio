@@ -39,5 +39,8 @@ function ls() {
  */
 function makeClickable(element, url) {
     const text = element.textContent;
-    element.innerHTML = `<a href="${url}">${text}</a>`;
+    // Add ?from=index when navigating from index page
+    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+    const href = isIndex ? `${url}?from=index` : url;
+    element.innerHTML = `<a href="${href}">${text}</a>`;
 }
